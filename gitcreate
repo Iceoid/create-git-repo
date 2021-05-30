@@ -5,5 +5,5 @@ token=put_your_api_token_here
 
 test -z $repo && echo "Repository name required." 1>&2 && exit 1
 
-curl -H "Content-Type:application/json" https://gitlab.com/api/v3/projects?private_token=$token -d "{ \"name\": \"$repo\" }"
+curl -H "Content-Type:application/json" https://gitlab.com/api/v4/projects?private_token=$token -d "{ \"name\": \"$repo\" }"
 
