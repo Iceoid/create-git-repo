@@ -1,9 +1,13 @@
 #!/bin/sh
 
 repo=$1
-token=put_your_api_token_here
+github_token=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
+gitlab_token=api_token_here
 
 test -z $repo && echo "Repository name required." 1>&2 && exit 1
 
-curl -H "Content-Type:application/json" https://gitlab.com/api/v4/projects?private_token=$token -d "{ \"name\": \"$repo\" }"
+# Github
+curl -H "Authorization: token ${github_token}" --data "{\"name\": \"${repo}\", \"private\": \"true\"}" https://api.github.com/user/repos
 
+# Gitlab
+#curl -H "Content-Type:application/json" https://gitlab.com/api/v4/projects?private_token=$gitlab_token -d "{ \"name\": \"$repo\" }"
